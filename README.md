@@ -17,6 +17,7 @@ This project is an end-to-end microservice-based sentiment analysis system built
 
 
    git clone https://github.com/Akhil1356/sentiment-analysis-api.git
+   
    cd sentiment-analysis-api
 
 
@@ -25,7 +26,7 @@ This project is an end-to-end microservice-based sentiment analysis system built
 
 docker-compose up --build -d
 
-     This will:
+This will:
 
 Build the FastAPI container
 
@@ -44,7 +45,9 @@ Once containers are running, enter the API container:
  ## Inside the container, run:
 
 
-    PYTHONPATH=/code python app/loader.py     ## Cleaned tweets inserted into MongoDB.    
+    PYTHONPATH=/code python app/loader.py  
+
+     ## Cleaned tweets inserted into MongoDB.    
 
  ## API Endpoints (Swagger UI)
 
