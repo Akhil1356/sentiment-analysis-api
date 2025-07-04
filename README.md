@@ -1,6 +1,11 @@
-## Sentiment Analysis API (with Docker & Swagger) ##
+## Sentiment Analysis API (Microservice) ##
 
-A fully containerized microservice for sentiment analysis using VADER and FastAPI. 
+This project is an end-to-end microservice-based sentiment analysis system built with **FastAPI**, **MongoDB**, and **VADER Sentiment Analyzer**. It allows you to:
+
+- Upload and clean tweet data
+- Store it in MongoDB
+- Analyze tweet sentiments using VADER
+- Run everything using Docker
 
 
  ## Prerequisites ##
@@ -8,42 +13,42 @@ A fully containerized microservice for sentiment analysis using VADER and FastAP
 - Python 3.10+
 - Docker & Docker Compose
 
+### 1. Clone the Repo
 
 
-###  Docker Setup ##
-
-
-# Step 1: Build the Docker images
-docker-compose build
-
-# Step 2: Run the containers
-docker-compose up
+   git clone https://github.com/Akhil1356/sentiment-analysis-api.git
+   cd sentiment-analysis-api
 
 
 
- ## Test the API
+## Build and Run with Docker ##
 
-Once the server is up, visit:
+docker-compose up --build -d
 
-http://localhost:8000/docs
-  
+     This will:
+
+Build the FastAPI container
+
+Spin up MongoDB container
+
+Run the app at: http://localhost:8000
 
 
+ ## Insert Cleaned Tweets into MongoDB
+Once containers are running, enter the API container:
 
 
-## Sample API Usage ##
+      docker exec -it sentiment_analysis-api-1 bash
 
-✅ POST /analyze
-json
 
-Request:
-{
-  "text": "I love this product! It's awesome."
-}
+ ## Inside the container, run:
 
-Response:
-{
-  "sentiment": "positive",
-  "score": 0.6696
-}
+
+    PYTHONPATH=/code python app/loader.py     ## Cleaned tweets inserted into MongoDB.    
+
+ ## API Endpoints (Swagger UI)
+
+Visit: http://localhost:8000/docs
+
+
 
