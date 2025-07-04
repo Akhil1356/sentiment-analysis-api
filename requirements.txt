@@ -1,11 +1,8 @@
 fastapi
 uvicorn
 python-dotenv
-pydantic
-
 pymongo
 nltk
 vaderSentiment
 python-multipart
-
 pandas
